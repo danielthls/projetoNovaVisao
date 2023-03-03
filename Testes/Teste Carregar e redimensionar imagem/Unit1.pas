@@ -79,6 +79,8 @@ begin
       Bitmap.Canvas.StretchDraw(Rect(0, 0, 256, 256), Png); // Resize and draw the image onto the bitmap
       Png.Assign(Bitmap); // Assign the bitmap to the PNG image
       Png.SaveToFile('resized_file.png'); // Save the resized image
+      FilePath := ExtractFilePath(ParamStr(0)) + 'resized_file.png';
+      memo1.lines.add(FilePath);
     finally
       Png.Free;
       Bitmap.Free;
