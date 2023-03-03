@@ -158,7 +158,7 @@ begin
   LFormData := TMultipartFormData.Create();
   LResponse := TStringStream.Create;
   try
-    LClient.CustomHeaders['Authorization'] := 'Bearer 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';
+    LClient.CustomHeaders['Authorization'] := 'Bearer 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';
 
     //LFormData.AddField('Authorization', 'Bearer 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');
     LFormData.AddFile('image', 'resized_file.png'); // You can also use the AddStream method if it's available
