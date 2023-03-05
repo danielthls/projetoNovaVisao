@@ -1,0 +1,54 @@
+unit UfrmSistema;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.StdCtrls, FMX.ListBox, FMX.Edit, FMX.Controls.Presentation, FMX.Layouts,
+  FMX.MultiView;
+
+type
+  TForm2 = class(TForm)
+    rectPrincipal: TRectangle;
+    btnMenu: TSpeedButton;
+    lytContainer: TLayout;
+    imgNovaVisao: TImage;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    edtCliente: TEdit;
+    edtCaminhoIMG: TEdit;
+    cmbVariacoes: TComboBox;
+    btnBuscar: TButton;
+    btnProcurar: TButton;
+    rectAvancar: TRectangle;
+    Label4: TLabel;
+    MultiView1: TMultiView;
+    Rectangle1: TRectangle;
+    lytLogo: TLayout;
+    imgLogo: TImage;
+    lstMenu: TListBox;
+  private
+    { Private declarations }
+    procedure btnProcurarClick(Sender: TObject);
+    procedure btnBuscarClick(Sender: TObject);
+    procedure lstMenuItemClick(const Sender: TCustomListBox;
+      const Item: TListBoxItem);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure rectAvancarClick(Sender: TObject);
+  public
+    { Public declarations }
+    procedure AbrirCadastro;
+    procedure AbrirEnviar;
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.fmx}
+
+end.
