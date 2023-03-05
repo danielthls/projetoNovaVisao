@@ -1,0 +1,16 @@
+program Project1;
+
+uses
+  Vcl.Forms,
+  UfrmTeste in 'UfrmTeste.pas' {Form1},
+  UImagem in 'UImagem.pas',
+  UChatGPT in 'UChatGPT.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

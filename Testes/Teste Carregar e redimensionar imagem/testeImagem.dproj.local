@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/12/14 00:57:27.000.138,=C:\Users\Ultrabook Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/02/07 12:49:13.000.818,=C:\Users\Ultrabook Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/02/07 13:03:42.000.137,=C:\Users\Ultrabook Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/02/07 13:04:12.000.110,=C:\Users\Ultrabook Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/02/07 13:05:22.000.657,=C:\Users\Ultrabook Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/02/07 23:02:53.000.933,=C:\Users\Ultrabook Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/02/07 23:06:32.000.010,=C:\Users\Ultrabook Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/02/24 10:18:26.000.518,=C:\Users\Ultrabook Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/03/02 20:43:19.000.902,=C:\Users\Ultrabook Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/03/02 21:01:04.000.615,C:\Users\Ultrabook Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Delphi\Projeto Nova Visão\Testes\Teste Carregar e redimensionar imagem\Unit1.dfm</Transaction>
+    <Transaction>2023/03/02 21:01:04.000.615,C:\Users\Ultrabook Lenovo\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Delphi\Projeto Nova Visão\Testes\Teste Carregar e redimensionar imagem\Unit1.pas</Transaction>
+    <Transaction>2023/03/02 21:01:07.000.902,C:\Users\Ultrabook Lenovo\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Delphi\Projeto Nova Visão\Testes\Teste Carregar e redimensionar imagem\Project1.dproj</Transaction>
+    <Transaction>2023/03/05 11:48:08.000.328,C:\Delphi\Projeto Nova Visão\Testes\Teste Carregar e redimensionar imagem\Project1.dproj=C:\Delphi\Projeto Nova Visão\Testes\Teste Carregar e redimensionar imagem\testeImagem.dproj</Transaction>
+    <Transaction>2023/03/05 12:40:55.000.833,C:\Delphi\Projeto Nova Visão\Testes\Teste Carregar e redimensionar imagem\Unit1.pas=C:\Delphi\Projeto Nova Visão\Testes\Teste Carregar e redimensionar imagem\TesteImagem.pas</Transaction>
+    <Transaction>2023/03/05 12:40:55.000.833,C:\Delphi\Projeto Nova Visão\Testes\Teste Carregar e redimensionar imagem\Unit1.dfm=C:\Delphi\Projeto Nova Visão\Testes\Teste Carregar e redimensionar imagem\TesteImagem.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
