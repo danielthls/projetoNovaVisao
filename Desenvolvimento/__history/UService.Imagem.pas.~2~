@@ -1,0 +1,77 @@
+unit UService.Imagem;
+
+interface
+
+uses vcl.Dialogs, SysUtils, vcl.Graphics;
+type
+  TImagem = class
+  private
+    FOpenDialog: TOpenDialog;
+    FPicture: TPicture;
+    FCaminhoImagem: String;
+    function GetCaminhoImagem: String;
+    function GetPicture: TPicture;
+  public
+    property Picture: TPicture read GetPicture;
+    property CaminhoImagem: String read GetCaminhoImagem;
+    constructor Create;
+    destructor Destroy; override;
+    procedure CarregarImagem;
+    procedure RedimensionarImagem;
+    procedure CriarImagemTemporaria;
+    class procedure ExcluirImagemTemporaria;
+end;
+
+implementation
+
+{ TImagem }
+
+procedure TImagem.CarregarImagem;
+begin
+  if FOpenDialog.Execute then
+  begin
+    FCaminhoImagem := FOpenDialog.FileName;
+    FPicture := LoadFromFile
+  end;
+end;
+
+constructor TImagem.Create;
+begin
+  FCaminhoImagem := 'Nenhuma imagem selectionada';
+  FOpenDialog := TOpenDialog.Create(nil);
+  FOpenDialog.Filter := 'Arquivos PNG (*.png)|*.png';
+  FPicture := TPicture.Create;
+end;
+
+procedure TImagem.CriarImagemTemporaria;
+begin
+
+end;
+
+destructor TImagem.Destroy;
+begin
+  FreeAndNil(FOpenDialog);
+  inherited;
+end;
+
+class procedure TImagem.ExcluirImagemTemporaria;
+begin
+
+end;
+
+function TImagem.GetCaminhoImagem: String;
+begin
+  Result := FCaminhoImagem;
+end;
+
+function TImagem.GetPicture: TPicture;
+begin
+  Result := FPicture;
+end;
+
+procedure TImagem.RedimensionarImagem;
+begin
+
+end;
+
+end.

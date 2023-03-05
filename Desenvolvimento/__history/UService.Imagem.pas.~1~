@@ -1,0 +1,19 @@
+unit UImagem;
+
+interface
+
+uses vcl.Dialogs;
+type
+  TImagem = class
+  private
+    FOpenDialog: TOpenDialog;
+    FImagem: String;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    f
+end;
+
+implementation
+
+end.
