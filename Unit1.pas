@@ -9,6 +9,8 @@ uses
 type
   TForm1 = class(TForm)
     Memo1: TMemo;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
   private
     procedure teste;
     { Private declarations }
@@ -26,6 +28,11 @@ implementation
 { TForm1 }
 uses
   system.JSON;
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  TESTE;
+end;
+
 procedure TForm1.teste;
 var
   xjson: tjsonobject;
@@ -42,7 +49,7 @@ begin
   xjson := TJSonObject.ParseJSONValue(xstring) as TJSONObject;
 
 
-  xJSONArray := xjson.ParseJSONValue('data') as TJSONArray;
+  xJSONArray := xjson.GetValue<TJSONArray>('data');
 
 
 
