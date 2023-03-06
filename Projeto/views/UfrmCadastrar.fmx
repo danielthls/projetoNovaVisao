@@ -1,6 +1,7 @@
 object frmCadastro: TfrmCadastro
   Left = 0
   Top = 0
+  BorderStyle = None
   Caption = 'Cadastrar'
   ClientHeight = 600
   ClientWidth = 800

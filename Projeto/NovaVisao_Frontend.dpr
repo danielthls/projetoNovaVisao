@@ -8,14 +8,13 @@ uses
   UfrmEnviar in 'views\UfrmEnviar.pas' {Form1},
   UService.Imagem in 'service\UService.Imagem.pas',
   UfrmCadastrar in 'views\UfrmCadastrar.pas' {frmCadastro},
-  UfrmSistema in 'views\UfrmSistema.pas' {frmSistema};
+  UfrmSistema in 'views\UfrmSistema.pas' {frmSistema},
+  UfrmImagens in 'views\UfrmImagens.pas' {frmImagens};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TfrmHome, frmHome);
-  Application.CreateForm(TfrmCadastro, frmCadastro);
-  Application.CreateForm(TfrmSistema, frmSistema);
   Application.Run;
 end.

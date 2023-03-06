@@ -1137,7 +1137,7 @@ object frmEnviar: TfrmEnviar
       TextSettings.Font.Size = 14.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       TabOrder = 0
-      object Z: TRadioButton
+      object rbEmail: TRadioButton
         StyledSettings = [Family, FontColor]
         Position.X = 40.000000000000000000
         Position.Y = 40.000000000000000000
@@ -1312,6 +1312,29 @@ object frmEnviar: TfrmEnviar
         TextSettings.FontColor = claWhite
         TextSettings.HorzAlign = Center
         Text = 'ENVIAR'
+        TabOrder = 0
+      end
+    end
+    object rectExibirImagens: TRectangle
+      Fill.Color = xFFCA9E67
+      Position.X = 168.000000000000000000
+      Position.Y = 392.000000000000000000
+      Size.Width = 255.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      OnClick = rectExibirImagensClick
+      object Label6: TLabel
+        Align = Center
+        StyledSettings = [Family]
+        Size.Width = 255.000000000000000000
+        Size.Height = 41.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        TextSettings.FontColor = claWhite
+        TextSettings.HorzAlign = Center
+        Text = 'Pre Visualizar Imagens'
         TabOrder = 0
       end
     end
