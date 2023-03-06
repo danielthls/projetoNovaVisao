@@ -15,7 +15,7 @@ type
     lytContainer: TLayout;
     imgNovavisao: TImage;
     GroupBox1: TGroupBox;
-    Z: TRadioButton;
+    rbEmail: TRadioButton;
     rbCelular: TRadioButton;
     rbAmbos: TRadioButton;
     rectFoto: TRectangle;
@@ -30,7 +30,10 @@ type
     Label4: TLabel;
     rectVoltar: TRectangle;
     Label5: TLabel;
+    rectExibirImagens: TRectangle;
+    Label6: TLabel;
     procedure rectVoltarClick(Sender: TObject);
+    procedure rectExibirImagensClick(Sender: TObject);
   private
     { Private declarations }
     procedure VoltarSistema;
@@ -44,7 +47,8 @@ var
 implementation
 
 uses
-  UfrmSistema;
+  UfrmSistema,
+  UfrmImagens;
 
 {$R *.fmx}
 
@@ -55,6 +59,16 @@ begin
     Application.CreateForm(TfrmSistema, frmSistema);
   end;
   frmSistema.Show();
+  Self.Close;
+end;
+
+procedure TfrmEnviar.rectExibirImagensClick(Sender: TObject);
+begin
+  if not Assigned(frmImagens) then
+  begin
+    Application.CreateForm(TfrmImagens, frmImagens);
+  end;
+  frmImagens.Show();
   Self.Close;
 end;
 

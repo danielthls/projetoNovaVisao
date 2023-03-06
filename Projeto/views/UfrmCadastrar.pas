@@ -37,7 +37,8 @@ var
 implementation
 
 uses
-  UfrmSistema;
+  UfrmSistema,
+  uBitmapHelper;
 
 {$R *.fmx}
 { TfrmCadastro }
