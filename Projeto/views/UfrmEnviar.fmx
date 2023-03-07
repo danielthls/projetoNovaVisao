@@ -9,6 +9,7 @@ object frmEnviar: TfrmEnviar
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   OnClose = FormClose
   DesignerMasterStyle = 0
   object rectPrincipal: TRectangle
@@ -1128,7 +1129,7 @@ object frmEnviar: TfrmEnviar
       Size.Height = 550.000000000000000000
       Size.PlatformDefault = False
     end
-    object GroupBox1: TGroupBox
+    object gbFormasEnvio: TGroupBox
       StyledSettings = [Family, FontColor, Other]
       Position.X = 96.000000000000000000
       Position.Y = 248.000000000000000000

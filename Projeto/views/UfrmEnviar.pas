@@ -7,14 +7,14 @@ uses
   System.Variants, UService.ChatGPT,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.ListBox,
-  FMX.MultiView;
+  FMX.MultiView, UEntity.Cliente;
 
 type
   TfrmEnviar = class(TForm)
     rectPrincipal: TRectangle;
     lytContainer: TLayout;
     imgNovavisao: TImage;
-    GroupBox1: TGroupBox;
+    gbFormasEnvio: TGroupBox;
     rbEmail: TRadioButton;
     rbCelular: TRadioButton;
     rbAmbos: TRadioButton;
@@ -36,12 +36,14 @@ type
     procedure rectExibirImagensClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure rectEnviarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     procedure VoltarSistema;
     procedure ObterLinks;
   public
     { Public declarations }
+    xCliente : TCliente;
     xChatGPT: TServiceChatGPT;
   end;
 
@@ -71,7 +73,11 @@ begin
   if Assigned(xChatGPT) then
     FreeAndNil(xChatGPT);
 
-  FreeAndNil(frmEnviar);
+end;
+
+procedure TfrmEnviar.FormCreate(Sender: TObject);
+begin
+  xCliente := TCliente.Create(1, 'João', 'novavisaoestudio@gmail.com', '4799999-8888');
 end;
 
 procedure TfrmEnviar.ObterLinks;
