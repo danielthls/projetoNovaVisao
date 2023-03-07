@@ -16,6 +16,7 @@ type
     FImage: String;
     FN: String;
     FSize: String;
+    FLinksGerados: Boolean;
     FClient: THTTPClient;
     FJSONObject: TJSONObject;
     FJSONArray: TJSONArray;
@@ -28,6 +29,7 @@ type
     procedure RemoverBarraJSON;
     function GetmtData: TFDMemTable;
     procedure SetmtData(const Value: TFDMemTable);
+    function GetLinksGerados: Boolean;
     Const
       SIZE = '256x256';
       IMAGE = 'imagemTemporaria.png';
@@ -37,6 +39,7 @@ type
   public
     //property N: string read GetN;
     property ListaLinks: TStringList read GetListaLinks;
+    property LinksGerados: Boolean read GetLinksGerados;
     //property mtData: TFDMemTable read mtData write SetmtData;
     //constructor Create(aN: String; aTabelaPrincipal, aTabelaData: TFDMemTable; aDataSource: TDataSource);
     constructor Create(aN: String);
@@ -75,6 +78,7 @@ begin
   //FRequest := TStringStream.Create;
   FListaLinks := TStringList.Create;
   FOpenAIAPIURL := URL;
+  FLinksGerados := False;
   FImage := IMAGE;
   FN := aN;
   FSize := SIZE;
@@ -151,6 +155,11 @@ begin
 
 end;
 
+function TServiceChatGPT.GetLinksGerados: Boolean;
+begin
+  Result := FLinksGerados;
+end;
+
 function TServiceChatGPT.GetListaLinks: TStringList;
 begin
   Result := FListaLinks;
@@ -190,7 +199,9 @@ begin
   for I := 0 to Pred(FJSONArray.Count) do
     FListaLinks.Add(FJSONArray.Get(I).GetValue<string>('url'));
 
+  FLinksGerados := true;
   Result := FListaLinks;
+
 
 end;
 

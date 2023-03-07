@@ -78,7 +78,7 @@ begin
     Application.CreateForm(TfrmEnviar, frmEnviar);
   end;
   frmEnviar.Show();
-  Self.Close;
+  Self.Hide;
 end;
 
 procedure TfrmSistema.btnBuscarClick(Sender: TObject);
