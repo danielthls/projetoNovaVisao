@@ -1,0 +1,79 @@
+unit uEntity.Cliente;
+
+interface
+
+type
+  TCliente = class
+    private
+      FId: Integer;
+      FName: String;
+      FEmail: String;
+      FTelefone: String;
+
+      function GetEmail: String;
+      function GetId: Integer;
+      function GetName: String;
+      function GetTelefone: String;
+
+      procedure SetEmail(const Value: String);
+      procedure SetId(const Value: Integer);
+      procedure SetName(const Value: String);
+      procedure SetTelefone(const Value: String);
+
+    public
+      constructor Create(const aNome, aEmail, aTelefone: String);
+
+      property Id: Integer read GetId write SetId;
+      property Name: String read GetName write SetName;
+      property Email: String read GetEmail write SetEmail;
+      property Telefone: String read GetTelefone write SetTelefone;
+  end;
+
+implementation
+
+uses
+  SysUtils;
+
+{ TUser }
+
+function TCliente.GetEmail: String;
+begin
+  Result := FEmail;
+end;
+
+function TCliente.GetId: Integer;
+begin
+  Result := FId;
+end;
+
+function TCliente.GetName: String;
+begin
+  Result := FNome;
+end;
+
+function TCliente.GetTelefone: String;
+begin
+  Result := FTelefone;
+end;
+
+procedure TCliente.SetEmail(const Value: String);
+begin
+  FEmail := Value;
+end;
+
+procedure TCliente.SetId(const Value: Integer);
+begin
+  FId := Value;
+end;
+
+procedure TCliente.SetName(const Value: String);
+begin
+  FNome := Value;
+end;
+
+procedure TCliente.SetTelefone(const Value: String);
+begin
+  FTelefone := Value;
+end;
+
+
