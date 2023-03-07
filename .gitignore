@@ -61,4 +61,6 @@
 # Delphi history and backups
 history/
 recovery/
+_history/
+Win32/
 .~

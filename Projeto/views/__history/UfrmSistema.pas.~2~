@@ -31,12 +31,11 @@ type
     lstMenu: TListBox;
     rectVoltar: TRectangle;
     Label5: TLabel;
-    btnProcurar1: TButton;
+    btnProcurar: TButton;
     procedure rectAvancarClick(Sender: TObject);
     procedure rectVoltarClick(Sender: TObject);
     procedure lstMenuItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
-    procedure btnProcurar1Click(Sender: TObject);
   private
     { Private declarations }
 
@@ -44,6 +43,7 @@ type
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ProcurarImagem;
+    procedure btnProcurarClick(Sender: TObject);
   public
     { Public declarations }
     procedure AbrirCadastro;
@@ -88,11 +88,6 @@ end;
 
 
 
-procedure TfrmSistema.btnProcurar1Click(Sender: TObject);
-begin
-  ProcurarImagem;
-end;
-
 procedure TfrmSistema.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := TCloseAction.caFree;
@@ -122,8 +117,8 @@ begin
   xImagem := TServiceImagem.Create;
   try
     xImagem.CarregarImagem;
-    edtCaminhoIMG.Text := xImagem.CaminhoImagem;
     xImagem.CriarImagemTemporaria;
+    edtCaminhoIMG.Text := xImagem.CaminhoImagem;
   finally
     FreeAndNil(xImagem);
   end;

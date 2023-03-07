@@ -1232,12 +1232,11 @@ object frmSistema: TfrmSistema
         TabOrder = 0
       end
     end
-    object btnProcurar1: TButton
+    object btnProcurar: TButton
       Position.X = 480.000000000000000000
       Position.Y = 224.000000000000000000
       TabOrder = 7
       Text = 'Procurar'
-      OnClick = btnProcurar1Click
     end
   end
   object rectVoltar: TRectangle
