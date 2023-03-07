@@ -5,9 +5,11 @@ object frmEnviar: TfrmEnviar
   Caption = 'Enviar'
   ClientHeight = 600
   ClientWidth = 800
+  Position = MainFormCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   DesignerMasterStyle = 0
   object rectPrincipal: TRectangle
     Align = Client
@@ -1296,7 +1298,7 @@ object frmEnviar: TfrmEnviar
     object rectEnviar: TRectangle
       Fill.Color = xFFCA9E67
       Position.X = 168.000000000000000000
-      Position.Y = 440.000000000000000000
+      Position.Y = 469.000000000000000000
       Size.Width = 255.000000000000000000
       Size.Height = 41.000000000000000000
       Size.PlatformDefault = False
@@ -1318,7 +1320,7 @@ object frmEnviar: TfrmEnviar
     object rectExibirImagens: TRectangle
       Fill.Color = xFFCA9E67
       Position.X = 168.000000000000000000
-      Position.Y = 392.000000000000000000
+      Position.Y = 421.000000000000000000
       Size.Width = 255.000000000000000000
       Size.Height = 41.000000000000000000
       Size.PlatformDefault = False
@@ -1334,7 +1336,7 @@ object frmEnviar: TfrmEnviar
         TextSettings.Font.StyleExt = {00060000000000000004000000}
         TextSettings.FontColor = claWhite
         TextSettings.HorzAlign = Center
-        Text = 'Pre Visualizar Imagens'
+        Text = 'PR'#201' VISUALIZAR IMAGENS'
         TabOrder = 0
       end
     end
