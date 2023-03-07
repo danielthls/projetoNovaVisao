@@ -68,7 +68,7 @@ begin
     Application.CreateForm(TfrmCadastrar, frmCadastrar);
   end;
   frmCadastrar.Show();
-  Self.Close;
+  Self.Hide;
 end;
 
 procedure TfrmSistema.AbrirEnviar;
