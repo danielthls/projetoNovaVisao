@@ -60,6 +60,7 @@ begin
     Application.CreateForm(TfrmSistema, frmSistema);
   end;
   frmSistema.Show();
+  Self.Close;
 end;
 
 procedure TfrmEnviar.FormClose(Sender: TObject; var Action: TCloseAction);

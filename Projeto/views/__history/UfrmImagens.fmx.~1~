@@ -9,7 +9,7 @@ object frmImagens: TfrmImagens
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnActivate = FormActivate
+  OnCreate = FormCreate
   OnClose = FormClose
   DesignerMasterStyle = 0
   object rectPrincipal: TRectangle
@@ -56,6 +56,16 @@ object frmImagens: TfrmImagens
       Size.Width = 130.000000000000000000
       Size.Height = 90.000000000000000000
       Size.PlatformDefault = False
+      object CheckBox1: TCheckBox
+        IsChecked = True
+        Position.X = -24.000000000000000000
+        Position.Y = 39.000000000000000000
+        Size.Width = 17.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 12
+        Text = 'CheckBox1'
+      end
     end
     object Image2: TImage
       MultiResBitmap = <
@@ -66,6 +76,16 @@ object frmImagens: TfrmImagens
       Size.Width = 130.000000000000000000
       Size.Height = 90.000000000000000000
       Size.PlatformDefault = False
+      object CheckBox2: TCheckBox
+        IsChecked = True
+        Position.X = -24.000000000000000000
+        Position.Y = 39.000000000000000000
+        Size.Width = 17.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 12
+        Text = 'CheckBox1'
+      end
     end
     object Image3: TImage
       MultiResBitmap = <
@@ -76,6 +96,16 @@ object frmImagens: TfrmImagens
       Size.Width = 130.000000000000000000
       Size.Height = 90.000000000000000000
       Size.PlatformDefault = False
+      object CheckBox3: TCheckBox
+        IsChecked = True
+        Position.X = -24.000000000000000000
+        Position.Y = 39.000000000000000000
+        Size.Width = 17.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 12
+        Text = 'CheckBox1'
+      end
     end
     object Image4: TImage
       MultiResBitmap = <
@@ -86,6 +116,16 @@ object frmImagens: TfrmImagens
       Size.Width = 130.000000000000000000
       Size.Height = 90.000000000000000000
       Size.PlatformDefault = False
+      object CheckBox4: TCheckBox
+        IsChecked = True
+        Position.X = -24.000000000000000000
+        Position.Y = 39.000000000000000000
+        Size.Width = 17.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 12
+        Text = 'CheckBox1'
+      end
     end
     object Image5: TImage
       MultiResBitmap = <
@@ -96,6 +136,16 @@ object frmImagens: TfrmImagens
       Size.Width = 130.000000000000000000
       Size.Height = 90.000000000000000000
       Size.PlatformDefault = False
+      object CheckBox5: TCheckBox
+        IsChecked = True
+        Position.X = -24.000000000000000000
+        Position.Y = 39.000000000000000000
+        Size.Width = 17.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 12
+        Text = 'CheckBox1'
+      end
     end
     object Image6: TImage
       MultiResBitmap = <
@@ -106,6 +156,16 @@ object frmImagens: TfrmImagens
       Size.Width = 130.000000000000000000
       Size.Height = 90.000000000000000000
       Size.PlatformDefault = False
+      object CheckBox6: TCheckBox
+        IsChecked = True
+        Position.X = -24.000000000000000000
+        Position.Y = 39.000000000000000000
+        Size.Width = 17.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 12
+        Text = 'CheckBox1'
+      end
     end
     object Image7: TImage
       MultiResBitmap = <
@@ -116,6 +176,16 @@ object frmImagens: TfrmImagens
       Size.Width = 130.000000000000000000
       Size.Height = 90.000000000000000000
       Size.PlatformDefault = False
+      object CheckBox7: TCheckBox
+        IsChecked = True
+        Position.X = -24.000000000000000000
+        Position.Y = 39.000000000000000000
+        Size.Width = 17.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 12
+        Text = 'CheckBox1'
+      end
     end
     object Image8: TImage
       MultiResBitmap = <
@@ -126,6 +196,16 @@ object frmImagens: TfrmImagens
       Size.Width = 130.000000000000000000
       Size.Height = 90.000000000000000000
       Size.PlatformDefault = False
+      object CheckBox8: TCheckBox
+        IsChecked = True
+        Position.X = -24.000000000000000000
+        Position.Y = 39.000000000000000000
+        Size.Width = 17.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 12
+        Text = 'CheckBox1'
+      end
     end
     object Image9: TImage
       MultiResBitmap = <
@@ -136,6 +216,16 @@ object frmImagens: TfrmImagens
       Size.Width = 130.000000000000000000
       Size.Height = 90.000000000000000000
       Size.PlatformDefault = False
+      object CheckBox9: TCheckBox
+        IsChecked = True
+        Position.X = -24.000000000000000000
+        Position.Y = 39.000000000000000000
+        Size.Width = 17.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 12
+        Text = 'CheckBox1'
+      end
     end
     object Image10: TImage
       MultiResBitmap = <
@@ -146,6 +236,16 @@ object frmImagens: TfrmImagens
       Size.Width = 130.000000000000000000
       Size.Height = 90.000000000000000000
       Size.PlatformDefault = False
+      object CheckBox10: TCheckBox
+        IsChecked = True
+        Position.X = -24.000000000000000000
+        Position.Y = 39.000000000000000000
+        Size.Width = 17.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 12
+        Text = 'CheckBox1'
+      end
     end
   end
   object imgNovavisao: TImage

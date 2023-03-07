@@ -29,7 +29,7 @@ type
     imgNovavisao: TImage;
     procedure rectVoltarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormActivate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     procedure AdicionaImagensATela;
     procedure LimpaTImage;
@@ -100,16 +100,16 @@ begin
   end;
 end;
 
-procedure TfrmImagens.FormActivate(Sender: TObject);
-begin
-  Self.LimpaTImage;
-  Self.AdicionaImagensATela;
-end;
-
 procedure TfrmImagens.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := TCloseAction.caFree;
   FreeAndNil(frmImagens);
+end;
+
+procedure TfrmImagens.FormShow(Sender: TObject);
+begin
+  Self.LimpaTImage;
+  Self.AdicionaImagensATela;
 end;
 
 procedure TfrmImagens.LimpaTImage;

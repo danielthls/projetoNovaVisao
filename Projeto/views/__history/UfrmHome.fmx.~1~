@@ -5,7 +5,7 @@ object frmHome: TfrmHome
   Caption = 'Tela Principal'
   ClientHeight = 600
   ClientWidth = 800
-  Position = ScreenCenter
+  Position = DesktopCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]

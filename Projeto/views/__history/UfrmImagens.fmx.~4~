@@ -9,7 +9,6 @@ object frmImagens: TfrmImagens
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnActivate = FormActivate
   OnClose = FormClose
   DesignerMasterStyle = 0
   object rectPrincipal: TRectangle
