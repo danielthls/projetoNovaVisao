@@ -3,7 +3,8 @@ unit UfrmImagens;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.Edit, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts;
 
@@ -38,6 +39,7 @@ type
     imgNovavisao: TImage;
     procedure FormCreate(Sender: TObject);
     procedure rectVoltarClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     procedure AdicionaImagensATela;
     procedure LimpaTImage;
@@ -53,49 +55,67 @@ var
 implementation
 
 {$R *.fmx}
+
 uses
   UfrmEnviar,
   uBitmapHelper;
 
 procedure TfrmImagens.AdicionaImagensATela;
 var
-  xStringList : TStringList;
-  //variaveis de controle
-  i,j : integer;
+  xStringList: TStringList;
+  // variaveis de controle
+  i, j: integer;
 begin
   xStringList := TStringList.Create;
   // Parte Feita Somente para Teste
-  xStringList.add('https://conexaoplaneta.com.br/wp-content/uploads/2023/01/imagens-redes-sociais-ajudam-descobertas-especies-australia-conexao-planeta-800x445.jpg');
-  xStringList.Add('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.Add('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.Add('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.Add('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.Add('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.Add('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.Add('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.Add('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.Add('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
+  xStringList.add
+    ('https://conexaoplaneta.com.br/wp-content/uploads/2023/01/imagens-redes-sociais-ajudam-descobertas-especies-australia-conexao-planeta-800x445.jpg');
+  xStringList.add
+    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
+  xStringList.add
+    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
+  xStringList.add
+    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
+  xStringList.add
+    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
+  xStringList.add
+    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
+  xStringList.add
+    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
+  xStringList.add
+    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
+  xStringList.add
+    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
+  xStringList.add
+    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
   // Fim Testes
 
   // For percorrendo o Stringlist com urls,importando elas para um TImage
   // as redimensionando enquanto coloca os componentes visiveis
   try
-  j := -1;
-  for i := 0 to xStringList.Count -1 do
-  begin
-    inc(J);
-    while not (frmImagens.Components[j] is TImage) or (frmImagens.Components[i] = imgNovavisao)  do
-      Inc(j);
-    if frmImagens.Components[j] is TImage then
+    j := -1;
+    for i := 0 to xStringList.Count - 1 do
+    begin
+      inc(j);
+      while not(frmImagens.Components[j] is TImage) or
+        (frmImagens.Components[i] = imgNovavisao) do
+        inc(j);
+      if frmImagens.Components[j] is TImage then
       begin
         TImage(frmImagens.Components[j]).Bitmap.LoadFromUrl(xStringList[i]);
-        //TImage(frmImagens.Components[j]).Bitmap.LoadThumbnailFromUrl(xStringList[i], 90, 90);
+        // TImage(frmImagens.Components[j]).Bitmap.LoadThumbnailFromUrl(xStringList[i], 90, 90);
         TImage(frmImagens.Components[j]).Visible := true;
       end;
-  end;
+    end;
   finally
     xStringList.Free;
   end;
+end;
+
+procedure TfrmImagens.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := TCloseAction.caFree;
+  FreeAndNil(frmImagens);
 end;
 
 procedure TfrmImagens.FormCreate(Sender: TObject);
@@ -106,11 +126,12 @@ end;
 
 procedure TfrmImagens.LimpaTImage;
 var
-  I: Integer;
+  i: integer;
 begin
-  //Limpa todos o TImage, novamente exceto o frmImagens (LOGO)
-  for i := 0 to frmImagens.ComponentCount -1 do
-    if (frmImagens.Components[i] is TImage) and not (frmImagens.Components[i] = imgNovavisao) then
+  // Limpa todos o TImage, novamente exceto o frmImagens (LOGO)
+  for i := 0 to frmImagens.ComponentCount - 1 do
+    if (frmImagens.Components[i] is TImage) and
+      not(frmImagens.Components[i] = imgNovavisao) then
     begin
       TImage(frmImagens.Components[i]).Bitmap := nil;
       TImage(frmImagens.Components[i]).Visible := false;

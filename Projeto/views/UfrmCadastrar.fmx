@@ -1,13 +1,15 @@
-object frmCadastro: TfrmCadastro
+object frmCadastrar: TfrmCadastrar
   Left = 0
   Top = 0
   BorderStyle = None
   Caption = 'Cadastrar'
   ClientHeight = 600
   ClientWidth = 800
+  Position = MainFormCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   DesignerMasterStyle = 0
   object rectPrincipal: TRectangle
     Align = Client

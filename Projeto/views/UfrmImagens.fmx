@@ -3,25 +3,27 @@ object frmImagens: TfrmImagens
   Top = 0
   BorderStyle = None
   Caption = 'Form2'
-  ClientHeight = 595
-  ClientWidth = 765
+  ClientHeight = 600
+  ClientWidth = 800
+  Position = MainFormCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
+  OnClose = FormClose
   DesignerMasterStyle = 0
   object rectPrincipal: TRectangle
     Align = Client
     Fill.Color = xFFD9D9D9
-    Size.Width = 765.000000000000000000
-    Size.Height = 595.000000000000000000
+    Size.Width = 800.000000000000000000
+    Size.Height = 559.000000000000000000
     Size.PlatformDefault = False
     Stroke.Color = claWhite
   end
   object recImagens: TRectangle
+    Align = Top
     Fill.Color = xFFCA9E67
-    Position.X = -16.000000000000000000
-    Size.Width = 777.000000000000000000
+    Size.Width = 800.000000000000000000
     Size.Height = 41.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
@@ -41,8 +43,8 @@ object frmImagens: TfrmImagens
   end
   object lytImagens: TLayout
     Align = Client
-    Size.Width = 765.000000000000000000
-    Size.Height = 595.000000000000000000
+    Size.Width = 800.000000000000000000
+    Size.Height = 559.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object Image1: TImage
@@ -1344,8 +1346,8 @@ object frmImagens: TfrmImagens
       end>
     Align = Client
     Opacity = 0.200000002980232200
-    Size.Width = 765.000000000000000000
-    Size.Height = 595.000000000000000000
+    Size.Width = 800.000000000000000000
+    Size.Height = 559.000000000000000000
     Size.PlatformDefault = False
   end
   object rectVoltar: TRectangle

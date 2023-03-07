@@ -30,13 +30,17 @@ type
     lytLogo: TLayout;
     imgLogo: TImage;
     lstMenu: TListBox;
+    rectVoltar: TRectangle;
+    Label5: TLabel;
     procedure rectAvancarClick(Sender: TObject);
+    procedure rectVoltarClick(Sender: TObject);
+    procedure lstMenuItemClick(const Sender: TCustomListBox;
+      const Item: TListBoxItem);
   private
     { Private declarations }
     procedure btnProcurarClick(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
-    procedure lstMenuItemClick(const Sender: TCustomListBox;
-      const Item: TListBoxItem);
+
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   public
@@ -51,14 +55,19 @@ var
 implementation
 
 uses
-  UUtils.Enum, UfrmEnviar, UfrmHome;
+  UUtils.Enum, UfrmEnviar, UfrmCadastrar;
 
 {$R *.fmx}
 { TForm2 }
 
 procedure TfrmSistema.AbrirCadastro;
 begin
-  ShowMessage('Teste');
+  if not Assigned(frmCadastrar) then
+  begin
+    Application.CreateForm(TfrmCadastrar, frmCadastrar);
+  end;
+  frmCadastrar.Show();
+  Self.Close;
 end;
 
 procedure TfrmSistema.AbrirEnviar;
@@ -89,7 +98,7 @@ end;
 procedure TfrmSistema.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := TCloseAction.caFree;
-  frmSistema := nil;
+  FreeAndNil(frmSistema);
 end;
 
 procedure TfrmSistema.lstMenuItemClick(const Sender: TCustomListBox;
@@ -98,7 +107,7 @@ begin
 
   case TEnumMenu(Item.Index) of
     mnuHome:
-      ShowMessage('home');
+      Self.Close;
     mnuCadastrar:
       ShowMessage('cadastrar');
     mnuSair:
@@ -110,7 +119,12 @@ end;
 
 procedure TfrmSistema.rectAvancarClick(Sender: TObject);
 begin
- Self.AbrirEnviar;
+  Self.AbrirEnviar;
+end;
+
+procedure TfrmSistema.rectVoltarClick(Sender: TObject);
+begin
+  Self.Close;
 end;
 
 end.
