@@ -34,7 +34,7 @@ type
       SIZE = '256x256';
       IMAGE = 'imagemTemporaria.png';
       URL = 'https://api.openai.com/v1/images/variations';
-      TOKEN = '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';
+      TOKEN = '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';
       DATA_KEY = 'data';
   public
     //property N: string read GetN;

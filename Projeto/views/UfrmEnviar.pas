@@ -35,6 +35,7 @@ type
     procedure rectVoltarClick(Sender: TObject);
     procedure rectExibirImagensClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure rectEnviarClick(Sender: TObject);
   private
     { Private declarations }
     procedure VoltarSistema;
@@ -80,6 +81,13 @@ begin
 
   if not (xChatGPT.LinksGerados) then
     xChatGPT.FormarRequest;
+
+end;
+
+procedure TfrmEnviar.rectEnviarClick(Sender: TObject);
+begin
+  ObterLinks;
+
 end;
 
 procedure TfrmEnviar.rectExibirImagensClick(Sender: TObject);
