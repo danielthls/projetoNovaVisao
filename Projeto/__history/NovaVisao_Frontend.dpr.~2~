@@ -5,13 +5,17 @@ uses
   FMX.Forms,
   UfrmHome in 'views\UfrmHome.pas' {frmHome},
   UUtils.Enum in 'Utils\UUtils.Enum.pas',
-  UfrmEnviar in 'views\UfrmEnviar.pas' {Form1};
+  UfrmEnviar in 'views\UfrmEnviar.pas' {Form1},
+  UService.Imagem in 'service\UService.Imagem.pas',
+  UfrmCadastrar in 'views\UfrmCadastrar.pas' {frmCadastro},
+  UfrmSistema in 'views\UfrmSistema.pas' {frmSistema},
+  UfrmImagens in 'views\UfrmImagens.pas' {frmImagens};
 
 {$R *.res}
 
 begin
+  ReportMemoryLeaksOnShutdown := True;
   Application.Initialize;
   Application.CreateForm(TfrmHome, frmHome);
-  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.

@@ -1205,16 +1205,8 @@ object frmSistema: TfrmSistema
       StyledSettings = [Family, Style, FontColor]
       Position.X = 480.000000000000000000
       Position.Y = 168.000000000000000000
-      TabOrder = 7
-      Text = 'Buscar'
-      TextSettings.Font.Size = 14.000000000000000000
-    end
-    object btnProcurar: TButton
-      StyledSettings = [Family, Style, FontColor]
-      Position.X = 480.000000000000000000
-      Position.Y = 224.000000000000000000
       TabOrder = 6
-      Text = 'Procurar'
+      Text = 'Buscar'
       TextSettings.Font.Size = 14.000000000000000000
     end
     object rectAvancar: TRectangle
@@ -1239,6 +1231,13 @@ object frmSistema: TfrmSistema
         Text = 'AVAN'#199'AR'
         TabOrder = 0
       end
+    end
+    object btnProcurar1: TButton
+      Position.X = 480.000000000000000000
+      Position.Y = 224.000000000000000000
+      TabOrder = 7
+      Text = 'Procurar'
+      OnClick = btnProcurar1Click
     end
   end
   object rectVoltar: TRectangle
