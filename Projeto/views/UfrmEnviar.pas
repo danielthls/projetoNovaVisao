@@ -34,6 +34,7 @@ type
     Label6: TLabel;
     procedure rectVoltarClick(Sender: TObject);
     procedure rectExibirImagensClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
     procedure VoltarSistema;
@@ -60,6 +61,12 @@ begin
   end;
   frmSistema.Show();
   Self.Close;
+end;
+
+procedure TfrmEnviar.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := TCloseAction.caFree;
+  FreeAndNil(frmEnviar);
 end;
 
 procedure TfrmEnviar.rectExibirImagensClick(Sender: TObject);

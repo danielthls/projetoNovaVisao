@@ -9,7 +9,7 @@ uses
   FMX.StdCtrls, FMX.Controls.Presentation, FMX.Layouts, FMX.Edit;
 
 type
-  TfrmCadastro = class(TForm)
+  TfrmCadastrar = class(TForm)
     rectPrincipal: TRectangle;
     lytContainer: TLayout;
     imgNovavisao: TImage;
@@ -24,6 +24,7 @@ type
     edtCelular: TEdit;
     edtEmail: TEdit;
     procedure rectVoltarClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
     procedure VoltarSistema;
@@ -32,7 +33,7 @@ type
   end;
 
 var
-  frmCadastro: TfrmCadastro;
+  frmCadastrar: TfrmCadastrar;
 
 implementation
 
@@ -43,7 +44,7 @@ uses
 {$R *.fmx}
 { TfrmCadastro }
 
-procedure TfrmCadastro.VoltarSistema;
+procedure TfrmCadastrar.VoltarSistema;
 begin
   if not Assigned(frmSistema) then
   begin
@@ -53,7 +54,13 @@ begin
   Self.Close;;
 end;
 
-procedure TfrmCadastro.rectVoltarClick(Sender: TObject);
+procedure TfrmCadastrar.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := TCloseAction.caFree;
+  FreeAndNil(frmCadastrar);
+end;
+
+procedure TfrmCadastrar.rectVoltarClick(Sender: TObject);
 begin
   Self.VoltarSistema;
 end;

@@ -5,6 +5,7 @@ object frmSistema: TfrmSistema
   Caption = 'Sistema'
   ClientHeight = 600
   ClientWidth = 800
+  Position = MainFormCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -1240,6 +1241,29 @@ object frmSistema: TfrmSistema
       end
     end
   end
+  object rectVoltar: TRectangle
+    Fill.Kind = None
+    Position.X = 757.000000000000000000
+    Position.Y = 5.000000000000000000
+    Size.Width = 39.000000000000000000
+    Size.Height = 39.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    OnClick = rectVoltarClick
+    object Label5: TLabel
+      Align = Center
+      StyledSettings = [Family]
+      Size.Width = 37.000000000000000000
+      Size.Height = 38.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 28.000000000000000000
+      TextSettings.Font.StyleExt = {00060000000000000004000000}
+      TextSettings.FontColor = xFFCA9E67
+      TextSettings.HorzAlign = Center
+      Text = '<'
+      TabOrder = 0
+    end
+  end
   object MultiView1: TMultiView
     TargetControl = rectPrincipal
     PopoverOptions.StyleLookup = ''
@@ -1765,6 +1789,7 @@ object frmSistema: TfrmSistema
         DefaultItemStyles.GroupHeaderStyle = ''
         DefaultItemStyles.GroupFooterStyle = ''
         ListStyle = Horizontal
+        OnItemClick = lstMenuItemClick
         Viewport.Width = 250.000000000000000000
         Viewport.Height = 365.000000000000000000
       end

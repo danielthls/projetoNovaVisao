@@ -18,7 +18,10 @@
     <Transaction>2023/03/05 20:02:59.000.916,C:\Users\mub4s\OneDrive\Área de Trabalho\Projeto\Nova visão - Front\Frontend\views\UfrmSistema.pas=C:\Users\mub4s\OneDrive\Área de Trabalho\Projeto\Nova visão - Front\Frontend\Unit2.pas</Transaction>
     <Transaction>2023/03/05 20:02:59.000.916,C:\Users\mub4s\OneDrive\Área de Trabalho\Projeto\Nova visão - Front\Frontend\views\UfrmSistema.fmx=C:\Users\mub4s\OneDrive\Área de Trabalho\Projeto\Nova visão - Front\Frontend\Unit2.fmx</Transaction>
     <Transaction>2023/03/06 16:41:11.000.099,=C:\Users\xxbeb\OneDrive\Documentos\NovaVisao\projetoNovaVisao\Projeto\views\UfrmImagens.pas</Transaction>
+<<<<<<< HEAD
     <Transaction>2023/03/06 22:21:27.494,=C:\Delphi\NovaVisao_main\projetoNovaVisao\Projeto\service\UService.ChatGPT.pas</Transaction>
+=======
+>>>>>>> main
   </Transactions>
 	<ActiveMobileDevice>
 		<NoProfile iOSSimulator="iPhone5"/>
