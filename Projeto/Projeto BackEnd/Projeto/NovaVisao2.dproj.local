@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/12/13 18:03:35.000.702,=C:\Users\mysql\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2022/12/19 18:40:04.000.196,=C:\Users\mysql\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/02/06 18:43:42.000.874,=C:\Users\mysql\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/02/06 21:07:01.000.039,=C:\Users\mysql\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/02/22 19:15:38.000.469,=C:\Users\mysql\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/03/03 20:42:06.000.312,=C:\Users\mysql\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/03/03 20:42:33.000.706,C:\Users\mysql\Desktop\Projeto\uDao.Cliente.pas=C:\Users\mysql\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/03/03 20:42:33.000.706,C:\Users\mysql\Desktop\Projeto\uDao.Cliente.dfm=C:\Users\mysql\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>2023/03/03 20:42:46.000.735,C:\Users\mysql\Desktop\Projeto\NovaVisao2.dproj=C:\Users\mysql\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2023/03/03 20:43:59.000.281,=C:\Users\mysql\Desktop\Projeto\uEntity.Cliente.pas</Transaction>
+    <Transaction>2023/03/03 20:43:59.000.311,=C:\Users\mysql\Desktop\Projeto\UUtils.Banco.pas</Transaction>
+    <Transaction>2023/03/03 20:50:30.000.720,=C:\Users\mysql\Desktop\Projeto\Unit1.pas</Transaction>
+    <Transaction>2023/03/03 21:20:11.000.473,C:\Users\mysql\Desktop\Projeto\UDaoCliente.pas=C:\Users\mysql\Desktop\Projeto\Unit1.pas</Transaction>
+    <Transaction>2023/03/03 21:23:53.000.374,C:\Users\mysql\Desktop\Projeto\uPrincipal.pas=C:\Users\mysql\Desktop\Projeto\uDao.Cliente.pas</Transaction>
+    <Transaction>2023/03/03 21:23:53.000.374,C:\Users\mysql\Desktop\Projeto\uPrincipal.dfm=C:\Users\mysql\Desktop\Projeto\uDao.Cliente.dfm</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="uPrincipal.pas"/>
+    <File Path="uPrincipal.dfm"/>
+    <File Path="UDaoCliente.pas"/>
+    <File Path="uEntity.Cliente.pas"/>
+    <File Path="UUtils.Banco.pas"/>
+  </ProjectSortOrder>
+</BorlandProject>
