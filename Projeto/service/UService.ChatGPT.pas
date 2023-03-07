@@ -32,7 +32,7 @@ type
       SIZE = '256x256';
       IMAGE = 'imagemTemporaria.png';
       URL = 'https://api.openai.com/v1/images/variations';
-      TOKEN = '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';
+      TOKEN = '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';
       DATA_KEY = 'data';
   public
     //property N: string read GetN;
@@ -44,6 +44,8 @@ type
     procedure ConfigurarTabelas;
     procedure FormarRequest;
     function ObterLinks: TStringList;
+    //function ObterMensagemErro(aResponse: String): String;
+
 
   end;
 implementation
@@ -92,7 +94,6 @@ begin
   FreeAndNil(mtData);
   FreeAndNil(FdsResponse);
   FreeAndNil(FJSONObject);
-  FreeAndNil(FJSONArray);
   inherited;
 end;
 
@@ -101,39 +102,53 @@ var
   xFormData: TMultipartFormData;
   xResponse: TStringStream;
   xStreamTest: TStreamReader;
+  xResponseCode: Integer;
   //TESTE
   xJSONFile: String;
+  xHTTPResponse: IHTTPResponse;
 begin
 
   xFormData := TMultipartFormData.Create;
   xResponse :=  TStringStream.Create;
-  xStreamTest := TStreamReader.Create('file.json');
+  //xStreamTest := TStreamReader.Create('file.json');
   try
     FClient.CustomHeaders['Authorization'] := 'Bearer ' + TOKEN;
     xFormData.AddFile('image', IMAGE);
     xFormData.AddField('n', FN);
     xFormData.AddField('size',SIZE);
-    FClient.Post(URL, xFormData, xResponse);
+    xHTTPResponse := FClient.Post(URL, xFormData, xResponse);
     TServiceImagem.ExcluirImagemTemporaria;
+    xResponseCode := xHTTPResponse.StatusCode;
 
-    FJSONObject := TJSONObject.ParseJSONValue(xResponse.DataString) as TJSONObject;
+    xJSONFile := xResponse.DataString;
+    TFile.WriteAllText('file.json', xJSONFile);
+
+    {if xResponseCode <> 200 then
+      raise Exception.Create(ObterMensagemErro(xJSONFile));}
+    //xJSONFile := TFile.ReadAllText('file.json');
+    FJSONObject := TJSONObject.ParseJSONValue(xJSONFile) as TJSONObject;
+
+    xJSONFile := FJSONObject.ToString;
+
+    TFile.WriteAllText('FJSONObject.json', xJSONFile);
     FJSONArray := FJSONObject.GetValue<TJSONArray>('data');
 
+    xJSONFile := FJSONArray.ToString;
+
+    TFile.WriteAllText('FJSONArray.json', xJSONFile);
 
     //FmtResponse.LoadFromJson(xResponse.DataString);
-    //xJSONFile := xResponse.DataString;
-    //TFile.WriteAllText('file.json', xJSONFile);
-    //xStreamTest := TStreamReader.Create('file.json');
 
-
-
-    FmtResponse.LoadFromJSON(xJSONFile);
-    ConfigurarTabelas;
+    //FmtResponse.LoadFromJSON(xJSONFile);
+    //ConfigurarTabelas;
   finally
     FreeAndNil(xFormData);
     FreeAndNil(xResponse);
-    FreeAndNil(xStreamTest);
+    //FreeAndNil(xStreamTest);
   end;
+
+  ObterLinks;
+
 end;
 
 function TServiceChatGPT.GetListaLinks: TStringList;
@@ -159,7 +174,7 @@ var
   ConteudoCampo: string;
 
 begin
-  FormarRequest;
+
 
   {for i := 0 to mtData.RecordCount - 1 do
     begin
@@ -173,11 +188,23 @@ begin
   }
 
   for I := 0 to Pred(FJSONArray.Count) do
-    FListaLinks.Add(FJSONArray.GetValue<string>('url'));
+    FListaLinks.Add(FJSONArray.Get(I).GetValue<string>('url'));
 
   Result := FListaLinks;
 
 end;
+
+{function TServiceChatGPT.ObterMensagemErro(aResponse: String): String;
+var
+  xJSONError: TJSONObject;
+  xJSONObject: TJSONObject;
+begin
+  xJSONObject := TJSONObject.ParseJSONValue(aResponse) as TJSONObject;
+  xJSONError := xJsonObject.GetValue('error') as TJSONObject;
+  Result := xJSONError.GetValue<String>('message');
+  FreeAndNil(xJSONError);
+  xJSONObject := nil;
+end;}
 
 procedure TServiceChatGPT.RemoverBarraJSON;
 var
