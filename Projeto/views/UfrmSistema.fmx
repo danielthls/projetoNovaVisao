@@ -1194,6 +1194,7 @@ object frmSistema: TfrmSistema
         '3'
         '4'
         '5')
+      ItemIndex = 1
       Position.X = 192.000000000000000000
       Position.Y = 264.000000000000000000
       Size.Width = 49.000000000000000000

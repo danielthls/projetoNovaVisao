@@ -1143,7 +1143,7 @@ object frmEnviar: TfrmEnviar
         StyledSettings = [Family, FontColor]
         Position.X = 40.000000000000000000
         Position.Y = 40.000000000000000000
-        TabOrder = 39
+        TabOrder = 40
         Text = 'E-Mail'
         TextSettings.Font.Size = 14.000000000000000000
         TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -1152,7 +1152,7 @@ object frmEnviar: TfrmEnviar
         StyledSettings = [Family, FontColor]
         Position.X = 136.000000000000000000
         Position.Y = 40.000000000000000000
-        TabOrder = 38
+        TabOrder = 39
         Text = 'Celular'
         TextSettings.Font.Size = 14.000000000000000000
         TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -1161,7 +1161,7 @@ object frmEnviar: TfrmEnviar
         StyledSettings = [Family, FontColor]
         Position.X = 232.000000000000000000
         Position.Y = 40.000000000000000000
-        TabOrder = 37
+        TabOrder = 38
         Text = 'Ambos'
         TextSettings.Font.Size = 14.000000000000000000
         TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -1303,6 +1303,7 @@ object frmEnviar: TfrmEnviar
       Size.Height = 41.000000000000000000
       Size.PlatformDefault = False
       Stroke.Kind = None
+      OnClick = rectEnviarClick
       object Label4: TLabel
         Align = Center
         StyledSettings = [Family]

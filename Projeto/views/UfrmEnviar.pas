@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes,
-  System.Variants,
+  System.Variants, UService.ChatGPT,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.ListBox,
   FMX.MultiView;
@@ -35,11 +35,14 @@ type
     procedure rectVoltarClick(Sender: TObject);
     procedure rectExibirImagensClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure rectEnviarClick(Sender: TObject);
   private
     { Private declarations }
     procedure VoltarSistema;
+    procedure ObterLinks;
   public
     { Public declarations }
+    xChatGPT: TServiceChatGPT;
   end;
 
 var
@@ -65,7 +68,26 @@ end;
 procedure TfrmEnviar.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := TCloseAction.caFree;
+  if Assigned(xChatGPT) then
+    FreeAndNil(xChatGPT);
+
   FreeAndNil(frmEnviar);
+end;
+
+procedure TfrmEnviar.ObterLinks;
+begin
+  if not (Assigned(xChatGPT)) then
+    xChatGPT := TServiceChatGPT.Create(frmSistema.cmbVariacoes.Items[frmSistema.cmbVariacoes.ItemIndex]);
+
+  if not (xChatGPT.LinksGerados) then
+    xChatGPT.FormarRequest;
+
+end;
+
+procedure TfrmEnviar.rectEnviarClick(Sender: TObject);
+begin
+  ObterLinks;
+
 end;
 
 procedure TfrmEnviar.rectExibirImagensClick(Sender: TObject);
