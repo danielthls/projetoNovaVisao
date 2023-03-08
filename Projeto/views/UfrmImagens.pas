@@ -132,6 +132,7 @@ begin
     Application.CreateForm(TfrmEnviar, frmEnviar);
   end;
   frmEnviar.Show();
+  Self.Hide;
 end;
 
 procedure TfrmImagens.rectVoltarClick(Sender: TObject);

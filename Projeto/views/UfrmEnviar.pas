@@ -65,6 +65,7 @@ begin
     Application.CreateForm(TfrmSistema, frmSistema);
   end;
   frmSistema.Show();
+  Self.Hide;
 end;
 
 procedure TfrmEnviar.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -72,7 +73,7 @@ begin
   Action := TCloseAction.caFree;
   if Assigned(xChatGPT) then
     FreeAndNil(xChatGPT);
-
+    FreeAndNil(frmEnviar);
 end;
 
 procedure TfrmEnviar.FormCreate(Sender: TObject);
@@ -103,6 +104,7 @@ begin
     Application.CreateForm(TfrmImagens, frmImagens);
   end;
   frmImagens.Show();
+  Self.Hide;
 end;
 
 procedure TfrmEnviar.rectVoltarClick(Sender: TObject);

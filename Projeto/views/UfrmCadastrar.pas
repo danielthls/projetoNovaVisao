@@ -51,12 +51,12 @@ begin
     Application.CreateForm(TfrmSistema, frmSistema);
   end;
   frmSistema.Show();
-  Self.Close;;
+  Self.Hide;
 end;
 
 procedure TfrmCadastrar.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  Action := TCloseAction.caFree;
+//  Action := TCloseAction.caFree;
   FreeAndNil(frmCadastrar);
 end;
 

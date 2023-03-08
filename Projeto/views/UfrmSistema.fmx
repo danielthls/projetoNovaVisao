@@ -1137,6 +1137,7 @@ object frmSistema: TfrmSistema
       Size.Width = 600.000000000000000000
       Size.Height = 550.000000000000000000
       Size.PlatformDefault = False
+      OnClick = imgNovaVisaoClick
     end
     object Label1: TLabel
       StyledSettings = [Family, FontColor]
@@ -1194,7 +1195,7 @@ object frmSistema: TfrmSistema
         '3'
         '4'
         '5')
-      ItemIndex = 1
+      ItemIndex = 0
       Position.X = 192.000000000000000000
       Position.Y = 264.000000000000000000
       Size.Width = 49.000000000000000000
