@@ -1318,6 +1318,7 @@ object frmEnviar: TfrmEnviar
         TextSettings.HorzAlign = Center
         Text = 'ENVIAR'
         TabOrder = 0
+        OnClick = Label4Click
       end
     end
     object rectExibirImagens: TRectangle
