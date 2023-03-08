@@ -17,6 +17,7 @@ type
 implementation
 uses
   System.SysUtils,
+  fmx.Dialogs,
   UUtils.Banco;
 
 { TDAOUsers }
@@ -34,6 +35,7 @@ begin
   try
     try
       Result := UtilBanco.AdicionarRegistroCliente(aCliente);
+      ShowMessage('Cliente Cadastrado com Sucesso. ');
     except
       on e: Exception do
         raise Exception.Create('Erro ao Adicionar Registro: '

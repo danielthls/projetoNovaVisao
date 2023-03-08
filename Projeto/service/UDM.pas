@@ -14,6 +14,7 @@ type
   var
     xCliente: TCliente;
     xServiceChatGPT: TServiceChatGPT;
+    xStringList: TStringList;
     { Public declarations }
   end;
 

@@ -117,8 +117,7 @@ begin
       qry_Aux.Open;
       if not qry_Aux.Eof then
       begin
-        Result := TCliente.Create(qry_Aux.FieldByName('ID').AsInteger,
-                                  qry_Aux.FieldByName('NOME').AsString,
+        Result := TCliente.Create(qry_Aux.FieldByName('NOME').AsString,
                                   qry_Aux.FieldByName('EMAIL').AsString,
                                   qry_Aux.FieldByName('NUM_TELEFONE').AsString);
       end;
