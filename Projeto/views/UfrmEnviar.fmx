@@ -1142,9 +1142,10 @@ object frmEnviar: TfrmEnviar
       TabOrder = 0
       object rbEmail: TRadioButton
         StyledSettings = [Family, FontColor]
+        IsChecked = True
         Position.X = 40.000000000000000000
         Position.Y = 40.000000000000000000
-        TabOrder = 40
+        TabOrder = 39
         Text = 'E-Mail'
         TextSettings.Font.Size = 14.000000000000000000
         TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -1153,7 +1154,7 @@ object frmEnviar: TfrmEnviar
         StyledSettings = [Family, FontColor]
         Position.X = 136.000000000000000000
         Position.Y = 40.000000000000000000
-        TabOrder = 39
+        TabOrder = 38
         Text = 'Celular'
         TextSettings.Font.Size = 14.000000000000000000
         TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -1162,7 +1163,7 @@ object frmEnviar: TfrmEnviar
         StyledSettings = [Family, FontColor]
         Position.X = 232.000000000000000000
         Position.Y = 40.000000000000000000
-        TabOrder = 38
+        TabOrder = 37
         Text = 'Ambos'
         TextSettings.Font.Size = 14.000000000000000000
         TextSettings.Font.StyleExt = {00060000000000000004000000}

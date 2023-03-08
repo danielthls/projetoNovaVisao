@@ -22,7 +22,7 @@ type
       class procedure FecharConexao;
     public
 
-      class function PesquisarRegistroCliente(const aCodCliente: Integer; aNomCliente: String): TCliente;
+      class function PesquisarRegistroCliente({const aCodCliente: Integer;} aNomCliente: String): TCliente;
       class function AdicionarRegistroCliente(const aClasseCliente: TCliente): Boolean;
   end;
 
@@ -88,7 +88,7 @@ begin
 end;
 
 
-class function TUtilBanco.PesquisarRegistroCliente(const aCodCliente: Integer; aNomCliente: String): TCliente;
+class function TUtilBanco.PesquisarRegistroCliente({const aCodCliente: Integer;} aNomCliente: String): TCliente;
 var
   qry_Aux: TFDQuery;
 begin
@@ -102,17 +102,17 @@ begin
       qry_Aux.sql.Clear;
       qry_Aux.SQL.Add('SELECT ID, NOME, EMAIL, NUM_TELEFONE FROM CLIENTE');
 
-      if aCodCliente <> 0 then
-      begin
-        qry_Aux.SQL.Add('WHERE ID = :ID');
-        qry_Aux.ParamByName('ID').AsInteger := aCodCliente;
-      end
-      else
-      begin
+//      if aCodCliente <> 0 then
+//      begin
+//        qry_Aux.SQL.Add('WHERE ID = :ID');
+//        qry_Aux.ParamByName('ID').AsInteger := aCodCliente;
+//      end
+//      else
+//      begin
         qry_Aux.SQL.Add('WHERE NOME LIKE ' + QuotedStr('%' + aNomCliente + '%')+ ''); //:NOME');
 
         //qry_Aux.ParamByName('NOME').AsString := aNomCliente;//+ QuotedStr('%' + aNomCliente + '%');
-      end;
+//      end;
 
       qry_Aux.Open;
       if not qry_Aux.Eof then

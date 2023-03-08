@@ -11,7 +11,7 @@ type
       FTabela: String;
     public
       constructor Create;
-      function ProcurarCliente(const aIdentificador: Integer; aNome: String): TCliente;
+      function ProcurarCliente({const aIdentificador: Integer;} aNome: String): TCliente;
       function AdicionarRegistro(aCliente: TCliente): Boolean;
   end;
 implementation
@@ -43,17 +43,17 @@ begin
     FreeAndNil(UtilBanco);
   end;
 end;
-function TDAOCliente.ProcurarCliente(const aIdentificador: Integer; aNome: String): TCliente;
+function TDAOCliente.ProcurarCliente({const aIdentificador: Integer;} aNome: String): TCliente;
 var
   UtilBanco: TUtilBanco;
 begin
   UtilBanco := TUtilBanco.Create;
   try
     try
-      Result := UtilBanco.PesquisarRegistroCliente(aIdentificador, aNome);
+      Result := UtilBanco.PesquisarRegistroCliente({aIdentificador,} aNome);
     except
       on e: Exception do
-        raise Exception.Create('Erro ao Adicionar Registro: '
+        raise Exception.Create('Erro ao Pesquisar Registro: '
           + e.Message);
     end;
   finally

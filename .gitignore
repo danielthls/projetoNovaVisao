@@ -6,3 +6,4 @@
 */.local
 **/__recovery
 *.identcache
+*.local

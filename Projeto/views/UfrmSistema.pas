@@ -87,8 +87,6 @@ begin
   // Buscar Cliente no Banco utilizando como referencia texto do edtCliente
 end;
 
-
-
 procedure TfrmSistema.btnProcurar1Click(Sender: TObject);
 begin
   ProcurarImagem;
@@ -130,6 +128,12 @@ begin
     xImagem.CarregarImagem;
     edtCaminhoIMG.Text := xImagem.CaminhoImagem;
     xImagem.CriarImagemTemporaria;
+    if not((xImagem.BitmapOriginal.Width = 0) and
+      (xImagem.BitmapOriginal.Height = 0)) then
+    begin
+    showMessage('abilitou');
+      rectAvancar.Enabled := True;
+    end;
   finally
     FreeAndNil(xImagem);
   end;

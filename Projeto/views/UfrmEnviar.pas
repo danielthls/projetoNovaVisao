@@ -94,7 +94,6 @@ end;
 procedure TfrmEnviar.rectEnviarClick(Sender: TObject);
 begin
   ObterLinks;
-
 end;
 
 procedure TfrmEnviar.rectExibirImagensClick(Sender: TObject);
