@@ -11,6 +11,15 @@ uses
   UfrmSistema in 'views\UfrmSistema.pas' {frmSistema},
   UfrmImagens in 'views\UfrmImagens.pas' {frmImagens},
   UService.ChatGPT in 'service\UService.ChatGPT.pas',
+
+
+
+
+
+
+
+
+
   UDaoCliente in 'Dao\UDaoCliente.pas',
   uEntity.Cliente in 'Entities\uEntity.Cliente.pas',
   UUtils.Banco in 'Utils\UUtils.Banco.pas';
