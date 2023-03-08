@@ -1,4 +1,4 @@
-program NovaVisao_Frontend;
+program Projeto_NovaVisao;
 
 uses
   System.StartUpCopy,
