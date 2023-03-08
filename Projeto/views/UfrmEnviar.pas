@@ -18,8 +18,6 @@ type
     rbEmail: TRadioButton;
     rbCelular: TRadioButton;
     rbAmbos: TRadioButton;
-    rectFoto: TRectangle;
-    imgFoto: TImage;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -37,7 +35,8 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure rectEnviarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure Label4Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+
   private
     { Private declarations }
     procedure VoltarSistema;
@@ -78,6 +77,11 @@ begin
   frmEnviar := nil;
 end;
 
+procedure TfrmEnviar.FormCreate(Sender: TObject);
+begin
+  ObterLinks;
+end;
+
 procedure TfrmEnviar.FormShow(Sender: TObject);
 begin
   if DM.xCliente <> nil then
@@ -88,11 +92,7 @@ begin
   end;
 end;
 
-{Solicita a notificação}
-procedure TfrmEnviar.Label4Click(Sender: TObject);
-begin
-  SolicitarNotificacao;
-end;
+
 
 {Definir tipo de notificação}
 function TfrmEnviar.DefinirTipoNotificacao: opEnumEnviar;
@@ -111,7 +111,11 @@ var
   aNotificacao: TNotificacao;
 begin
   aNotificacao := TNotificacao.Create(DM.xCliente, DM.xServiceChatGPT.ListaLinks);
-  aNotificacao.SolicitarNotificacao(DefinirTipoNotificacao);
+  try
+    aNotificacao.SolicitarNotificacao(DefinirTipoNotificacao);
+  finally
+    FreeAndNil(aNotificacao);
+  end;
 end;
 
 procedure TfrmEnviar.ObterLinks;
@@ -124,9 +128,12 @@ begin
 
 end;
 
+{Instancia ChatGPT, gera links e solicita a notificação}
 procedure TfrmEnviar.rectEnviarClick(Sender: TObject);
 begin
-  ObterLinks;
+
+  SolicitarNotificacao;
+
 end;
 
 procedure TfrmEnviar.rectExibirImagensClick(Sender: TObject);

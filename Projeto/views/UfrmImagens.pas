@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes,
-  System.Variants,
+  System.Variants, UDM,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.Edit, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts;
 
@@ -31,7 +31,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormActivate(Sender: TObject);
   private
-    procedure AdicionaImagensATela;
+    procedure AdicionaImagensATela(aListaLinks: TStringList);
     procedure LimpaTImage;
     procedure VoltarSistema;
     { Private declarations }
@@ -50,41 +50,16 @@ uses
   UfrmEnviar,
   uBitmapHelper;
 
-procedure TfrmImagens.AdicionaImagensATela;
+procedure TfrmImagens.AdicionaImagensATela(aListaLinks: TStringList);
 var
-  xStringList: TStringList;
   // variaveis de controle
   i, j: integer;
 begin
-  xStringList := TStringList.Create;
-  // Parte Feita Somente para Teste
-  xStringList.add
-    ('https://conexaoplaneta.com.br/wp-content/uploads/2023/01/imagens-redes-sociais-ajudam-descobertas-especies-australia-conexao-planeta-800x445.jpg');
-  xStringList.add
-    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.add
-    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.add
-    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.add
-    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.add
-    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.add
-    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.add
-    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.add
-    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  xStringList.add
-    ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT4TMwB3gGcl7GWyy8qHg4dyaQ9Iw3NlnOa-3WHiNvvkfq2mFjLowkmKEgcUVDS4tLFZs&usqp=CAU');
-  // Fim Testes
-
   // For percorrendo o Stringlist com urls,importando elas para um TImage
   // as redimensionando enquanto coloca os componentes visiveis
   try
     j := -1;
-    for i := 0 to xStringList.Count - 1 do
+     for i := 0 to aListaLinks.Count - 1 do
     begin
       inc(j);
       while not(frmImagens.Components[j] is TImage) or
@@ -92,24 +67,23 @@ begin
         inc(j);
       if frmImagens.Components[j] is TImage then
       begin
-        TImage(frmImagens.Components[j]).Bitmap.LoadFromUrl(xStringList[i]);
+        TImage(frmImagens.Components[j]).Bitmap.LoadFromUrl(aListaLinks[i]);
       end;
     end;
   finally
-    xStringList.Free;
+   // aListaLinks.Free;
   end;
 end;
 
 procedure TfrmImagens.FormActivate(Sender: TObject);
 begin
   Self.LimpaTImage;
-  Self.AdicionaImagensATela;
+  Self.AdicionaImagensATela(dm.xServiceChatGPT.ListaLinks);
 end;
 
 procedure TfrmImagens.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := TCloseAction.caFree;
-  FreeAndNil(frmImagens);
 end;
 
 procedure TfrmImagens.LimpaTImage;

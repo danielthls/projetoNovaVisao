@@ -12,10 +12,7 @@ type
   TServiceChatGPT = class
   private
     FToken: String;
-    FOpenAIAPIURL: String;
-    FImage: String;
     FN: String;
-    FSize: String;
     FLinksGerados: Boolean;
     FClient: THTTPClient;
     FJSONObject: TJSONObject;
@@ -30,6 +27,7 @@ type
     //function GetmtData: TFDMemTable;
     //procedure SetmtData(const Value: TFDMemTable);
     function GetLinksGerados: Boolean;
+    procedure CarregarToken;
     Const
       SIZE = '256x256';
       IMAGE = 'imagemTemporaria.png';
@@ -44,7 +42,7 @@ type
     //constructor Create(aN: String; aTabelaPrincipal, aTabelaData: TFDMemTable; aDataSource: TDataSource);
     constructor Create(aN: String);
     destructor Destroy; override;
-    procedure CarregarToken;
+
     //procedure ConfigurarTabelas;
     procedure FormarRequest;
     function ObterLinks: TStringList;
@@ -88,11 +86,8 @@ begin
   FClient := THTTPClient.Create;
   //FRequest := TStringStream.Create;
   FListaLinks := TStringList.Create;
-  FOpenAIAPIURL := URL;
   FLinksGerados := False;
-  FImage := IMAGE;
   FN := aN;
-  FSize := SIZE;
   CarregarToken;
   {FmtResponse := aTabelaPrincipal;
   mtData := aTabelaData;
@@ -138,8 +133,7 @@ begin
     xJSONFile := xResponse.DataString;
     TFile.WriteAllText('file.json', xJSONFile);
 
-    {if xResponseCode <> 200 then
-      raise Exception.Create(ObterMensagemErro(xJSONFile));}
+    //Para testar sem puxar o API - Descomentar
     //xJSONFile := TFile.ReadAllText('file.json');
     FJSONObject := TJSONObject.ParseJSONValue(xJSONFile) as TJSONObject;
 
