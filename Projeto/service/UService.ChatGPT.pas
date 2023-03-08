@@ -20,21 +20,21 @@ type
     FClient: THTTPClient;
     FJSONObject: TJSONObject;
     FJSONArray: TJSONArray;
-    FmtResponse: TFDMemTable;
-    mtData: TFDMemTable;
-    FdsResponse: TDataSource;
+    //FmtResponse: TFDMemTable;
+    //mtData: TFDMemTable;
+    //FdsResponse: TDataSource;
     FListaLinks: TStringList;
     //function GetN: string;
     function GetListaLinks: TStringList;
     procedure RemoverBarraJSON;
-    function GetmtData: TFDMemTable;
-    procedure SetmtData(const Value: TFDMemTable);
+    //function GetmtData: TFDMemTable;
+    //procedure SetmtData(const Value: TFDMemTable);
     function GetLinksGerados: Boolean;
     Const
       SIZE = '256x256';
       IMAGE = 'imagemTemporaria.png';
       URL = 'https://api.openai.com/v1/images/variations';
-      TOKEN = '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';
+      ARQUIVO_TOKEN = 'token.jwt';
       DATA_KEY = 'data';
   public
     //property N: string read GetN;
@@ -44,7 +44,8 @@ type
     //constructor Create(aN: String; aTabelaPrincipal, aTabelaData: TFDMemTable; aDataSource: TDataSource);
     constructor Create(aN: String);
     destructor Destroy; override;
-    procedure ConfigurarTabelas;
+    procedure CarregarToken;
+    //procedure ConfigurarTabelas;
     procedure FormarRequest;
     function ObterLinks: TStringList;
     //function ObterMensagemErro(aResponse: String): String;
@@ -54,7 +55,17 @@ type
 implementation
 { TServiceChatGPT }
 
-procedure TServiceChatGPT.ConfigurarTabelas;
+procedure TServiceChatGPT.CarregarToken;
+var
+  xStringList: TStringList;
+begin
+  xStringList := TStringList.Create;
+  xStringList.LoadFromFile(ARQUIVO_TOKEN);
+  if xStringList.Count > 0 then
+      FToken := xStringList[0];
+end;
+
+{procedure TServiceChatGPT.ConfigurarTabelas;
 begin
   FdsResponse.DataSet := FmtResponse;
 
@@ -69,7 +80,7 @@ begin
 
   FmtResponse.Open;
   mtData.Open;
-end;
+end;}
 
 constructor TServiceChatGPT.Create(aN: String);
 //constructor TServiceChatGPT.Create(aN: String; aTabelaPrincipal, aTabelaData: TFDMemTable; aDataSource: TDataSource);
@@ -82,7 +93,7 @@ begin
   FImage := IMAGE;
   FN := aN;
   FSize := SIZE;
-  FToken := TOKEN;
+  CarregarToken;
   {FmtResponse := aTabelaPrincipal;
   mtData := aTabelaData;
   FdsResponse := aDataSource;}
@@ -94,9 +105,9 @@ begin
   FreeAndNil(FClient);
   //FreeAndNil(FRequest);
   FreeAndNil(FListaLinks);
-  FreeAndNil(FmtResponse);
-  FreeAndNil(mtData);
-  FreeAndNil(FdsResponse);
+  //FreeAndNil(FmtResponse);
+  //FreeAndNil(mtData);
+  //FreeAndNil(FdsResponse);
   FreeAndNil(FJSONObject);
   inherited;
 end;
@@ -116,7 +127,7 @@ begin
   xResponse :=  TStringStream.Create;
   //xStreamTest := TStreamReader.Create('file.json');
   try
-    FClient.CustomHeaders['Authorization'] := 'Bearer ' + TOKEN;
+    FClient.CustomHeaders['Authorization'] := 'Bearer ' + FToken;
     xFormData.AddFile('image', IMAGE);
     xFormData.AddField('n', FN);
     xFormData.AddField('size',SIZE);
@@ -165,10 +176,10 @@ begin
   Result := FListaLinks;
 end;
 
-function TServiceChatGPT.GetmtData: TFDMemTable;
+{function TServiceChatGPT.GetmtData: TFDMemTable;
 begin
   Result := mtData;
-end;
+end;}
 
 {function TServiceChatGPT.GetN: string;
 begin
@@ -225,9 +236,9 @@ begin
     FListaLinks[I].Replace('\/', '/', [rfReplaceAll]);}
 end;
 
-procedure TServiceChatGPT.SetmtData(const Value: TFDMemTable);
+{procedure TServiceChatGPT.SetmtData(const Value: TFDMemTable);
 begin
   mtData := Value;
-end;
+end;}
 
 end.

@@ -1,4 +1,4 @@
-unit UDM;
+unit UService.DM;
 
 interface
 
@@ -28,10 +28,8 @@ implementation
 
 procedure TDM.DataModuleDestroy(Sender: TObject);
 begin
-  if Assigned(xCliente) then
-    FreeAndNil(xCliente);
-  if Assigned(xServiceChatGPT) then
-    FreeAndNil(xServiceChatGPT);
+  FreeAndNil(xCliente);
+  FreeAndNil(xServiceChatGPT);
 end;
 
 end.
