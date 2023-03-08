@@ -17,7 +17,8 @@ uses
   UService.Notificacao in 'service\UService.Notificacao.pas',
   UNotificacaoApp in 'units\UNotificacaoApp.pas',
   UNotificacaoEmail in 'units\UNotificacaoEmail.pas',
-  UUtils.Consts in 'Utils\UUtils.Consts.pas';
+  UUtils.Consts in 'Utils\UUtils.Consts.pas',
+  UDM in 'service\UDM.pas' {DM: TDataModule};
 
 {$R *.res}
 
@@ -25,5 +26,6 @@ begin
   ReportMemoryLeaksOnShutdown := True;
   Application.Initialize;
   Application.CreateForm(TfrmHome, frmHome);
+  Application.CreateForm(TDM, DM);
   Application.Run;
 end.

@@ -51,7 +51,6 @@ type
     procedure ProcurarImagem;
   public
     { Public declarations }
-    xCliente: TCliente;
     procedure AbrirCadastro;
     procedure AbrirEnviar;
   end;
@@ -62,7 +61,7 @@ var
 implementation
 
 uses
-  UUtils.Enum, UfrmEnviar, UfrmCadastrar;
+  UDM, UUtils.Enum, UfrmEnviar, UfrmCadastrar;
 
 {$R *.fmx}
 { TForm2 }
@@ -110,12 +109,14 @@ var
 begin
   xDaoCliente := TDAOCliente.Create;
   try
-    xCliente := xDaoCliente.ProcurarCliente(edtCliente.Text);
+    DM.xCliente := xDaoCliente.ProcurarCliente(edtCliente.Text);
     try
-      if xCliente <> nil then
+      if DM.xCliente <> nil then
       begin
-        ShowMessage('Cliente "'+ xCliente.Nome + '" foi encontrado!');
-        edtCliente.Text := xCliente.Nome;
+        ShowMessage('Cliente "'+ DM.xCliente.Nome + '" foi encontrado!');
+        edtCliente.Text := DM.xCliente.Nome;
+        if assigned(DM.xServiceChatGPT) then
+          FreeAndNil(DM.xServiceChatGPT);
         Result := True
       end
       else
@@ -132,11 +133,6 @@ end;
 procedure TfrmSistema.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := TCloseAction.caFree;
-
-  if Assigned(xCliente) then
-  begin
-    FreeAndNil(xCliente);
-  end;
 
   frmSistema := nil;
 end;

@@ -43,8 +43,6 @@ type
     procedure ObterLinks;
   public
     { Public declarations }
-    xCliente : TCliente;
-    xChatGPT: TServiceChatGPT;
   end;
 
 var
@@ -54,6 +52,7 @@ implementation
 
 uses
   UfrmSistema,
+  UDM,
   UfrmImagens;
 
 {$R *.fmx}
@@ -71,28 +70,27 @@ end;
 procedure TfrmEnviar.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := TCloseAction.caFree;
-  if Assigned(xChatGPT) then
-    FreeAndNil(xChatGPT);
+
   frmEnviar := nil;
 end;
 
 procedure TfrmEnviar.FormShow(Sender: TObject);
 begin
-  if frmSistema.xCliente <> nil then
+  if DM.xCliente <> nil then
   begin
-  lblNome.Text := frmSistema.xCliente.Nome;
-  lblEmail.Text := frmSistema.xCliente.Email;
-  lblCelular.Text := frmSistema.xCliente.Telefone;
+  lblNome.Text := DM.xCliente.Nome;
+  lblEmail.Text := DM.xCliente.Email;
+  lblCelular.Text := DM.xCliente.Telefone;
   end;
 end;
 
 procedure TfrmEnviar.ObterLinks;
 begin
-  if not (Assigned(xChatGPT)) then
-    xChatGPT := TServiceChatGPT.Create(frmSistema.cmbVariacoes.Items[frmSistema.cmbVariacoes.ItemIndex]);
+  if not (Assigned(DM.xServiceChatGPT)) then
+    DM.xServiceChatGPT := TServiceChatGPT.Create(frmSistema.cmbVariacoes.Items[frmSistema.cmbVariacoes.ItemIndex]);
 
-  if not (xChatGPT.LinksGerados) then
-    xChatGPT.FormarRequest;
+  if not (DM.xServiceChatGPT.LinksGerados) then
+    DM.xServiceChatGPT.FormarRequest;
 
 end;
 
