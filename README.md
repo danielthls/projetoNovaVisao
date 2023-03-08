@@ -16,7 +16,7 @@ Estudio fotografico Nova Visão.
 
 Estudio estava despendendo muito tempo para entregar, à pedido de seus clientes, modificações e variações na suas Fotos.
 
-Para solucionar esse problema, esse projeto foi idealizado e desenvolvido, integrando a utilização da API da Dall-e da OpenAI.
+Para solucionar esse problema, esse projeto foi idealizado e desenvolvido, integrando a utilização da API Dall-e da OpenAI.
 
 
  
