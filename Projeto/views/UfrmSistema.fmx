@@ -9,6 +9,7 @@ object frmSistema: TfrmSistema
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   DesignerMasterStyle = 0
   object rectPrincipal: TRectangle
     Align = Client
@@ -1203,14 +1204,6 @@ object frmSistema: TfrmSistema
       Size.PlatformDefault = False
       TabOrder = 5
     end
-    object btnBuscar: TButton
-      StyledSettings = [Family, Style, FontColor]
-      Position.X = 480.000000000000000000
-      Position.Y = 168.000000000000000000
-      TabOrder = 6
-      Text = 'Buscar'
-      TextSettings.Font.Size = 14.000000000000000000
-    end
     object rectAvancar: TRectangle
       Enabled = False
       Fill.Color = xFFCA9E67
@@ -1238,9 +1231,16 @@ object frmSistema: TfrmSistema
     object btnProcurar1: TButton
       Position.X = 480.000000000000000000
       Position.Y = 224.000000000000000000
-      TabOrder = 7
+      TabOrder = 6
       Text = 'Procurar'
       OnClick = btnProcurar1Click
+    end
+    object btnBuscar1: TButton
+      Position.X = 480.000000000000000000
+      Position.Y = 168.000000000000000000
+      TabOrder = 7
+      Text = 'Buscar'
+      OnClick = btnBuscar1Click
     end
   end
   object rectVoltar: TRectangle
@@ -1796,5 +1796,10 @@ object frmSistema: TfrmSistema
         Viewport.Height = 365.000000000000000000
       end
     end
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'FMX'
+    Left = 32
+    Top = 104
   end
 end

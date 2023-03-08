@@ -36,7 +36,7 @@ type
     procedure rectExibirImagensClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure rectEnviarClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
     procedure VoltarSistema;
@@ -73,12 +73,17 @@ begin
   Action := TCloseAction.caFree;
   if Assigned(xChatGPT) then
     FreeAndNil(xChatGPT);
-    FreeAndNil(frmEnviar);
+  frmEnviar := nil;
 end;
 
-procedure TfrmEnviar.FormCreate(Sender: TObject);
+procedure TfrmEnviar.FormShow(Sender: TObject);
 begin
-  xCliente := TCliente.Create(1, 'João', 'novavisaoestudio@gmail.com', '4799999-8888');
+  if frmSistema.xCliente <> nil then
+  begin
+  lblNome.Text := frmSistema.xCliente.Nome;
+  lblEmail.Text := frmSistema.xCliente.Email;
+  lblCelular.Text := frmSistema.xCliente.Telefone;
+  end;
 end;
 
 procedure TfrmEnviar.ObterLinks;

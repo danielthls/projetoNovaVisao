@@ -4,10 +4,11 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes,
-  System.Variants,
+  System.Variants, UDao.Cliente, UEntity.Cliente,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.StdCtrls, FMX.ListBox, FMX.Edit, FMX.Controls.Presentation, FMX.Layouts,
-  FMX.MultiView, UService.Imagem;
+  FMX.MultiView, UService.Imagem, FireDAC.UI.Intf, FireDAC.FMXUI.Wait,
+  FireDAC.Stan.Intf, FireDAC.Comp.UI;
 
 type
   TfrmSistema = class(TForm)
@@ -21,7 +22,6 @@ type
     edtCliente: TEdit;
     edtCaminhoIMG: TEdit;
     cmbVariacoes: TComboBox;
-    btnBuscar: TButton;
     rectAvancar: TRectangle;
     Label4: TLabel;
     MultiView1: TMultiView;
@@ -32,21 +32,26 @@ type
     rectVoltar: TRectangle;
     Label5: TLabel;
     btnProcurar1: TButton;
+    btnBuscar1: TButton;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     procedure rectAvancarClick(Sender: TObject);
     procedure rectVoltarClick(Sender: TObject);
     procedure lstMenuItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
     procedure btnProcurar1Click(Sender: TObject);
     procedure imgNovaVisaoClick(Sender: TObject);
+    procedure btnBuscar1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
 
     procedure btnBuscarClick(Sender: TObject);
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    function BuscarCliente(aCliente: String): boolean;
+    //
     procedure ProcurarImagem;
   public
     { Public declarations }
+    xCliente: TCliente;
     procedure AbrirCadastro;
     procedure AbrirEnviar;
   end;
@@ -82,9 +87,16 @@ begin
   Self.Hide;
 end;
 
+procedure TfrmSistema.btnBuscar1Click(Sender: TObject);
+begin
+  if (buscarCliente(edtCliente.Text)) then
+
+
+end;
+
 procedure TfrmSistema.btnBuscarClick(Sender: TObject);
 begin
-  // Buscar Cliente no Banco utilizando como referencia texto do edtCliente
+
 end;
 
 procedure TfrmSistema.btnProcurar1Click(Sender: TObject);
@@ -92,10 +104,41 @@ begin
   ProcurarImagem;
 end;
 
+function TfrmSistema.BuscarCliente(aCliente: String): Boolean;
+var
+  xDaoCliente : TDAOCliente;
+begin
+  xDaoCliente := TDAOCliente.Create;
+  try
+    xCliente := xDaoCliente.ProcurarCliente(edtCliente.Text);
+    try
+      if xCliente <> nil then
+      begin
+        ShowMessage('Cliente "'+ xCliente.Nome + '" foi encontrado!');
+        edtCliente.Text := xCliente.Nome;
+        Result := True
+      end
+      else
+        ShowMessage('Nenhum registro encontrado!');
+        Result := False
+    finally
+   //   FreeAndNil(xCliente);
+    end;
+  finally
+    FreeAndNil(xDaoCliente);
+  end;
+end;
+
 procedure TfrmSistema.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := TCloseAction.caFree;
-  FreeAndNil(frmSistema);
+
+  if Assigned(xCliente) then
+  begin
+    FreeAndNil(xCliente);
+  end;
+
+  frmSistema := nil;
 end;
 
 procedure TfrmSistema.imgNovaVisaoClick(Sender: TObject);
@@ -119,6 +162,7 @@ begin
   MultiView1.HideMaster;
 end;
 
+
 procedure TfrmSistema.ProcurarImagem;
 var
   xImagem: TServiceImagem;
@@ -131,7 +175,7 @@ begin
     if not((xImagem.BitmapOriginal.Width = 0) and
       (xImagem.BitmapOriginal.Height = 0)) then
     begin
-    showMessage('abilitou');
+   // showMessage('abilitou');
       rectAvancar.Enabled := True;
     end;
   finally
