@@ -30,6 +30,8 @@ implementation
 
 { TUtilBanco }
 
+uses uPrincipal;
+
 class procedure TUtilBanco.AbrirConexao;
 var
   xDriver: TFDPhysMySQLDriverLink;
