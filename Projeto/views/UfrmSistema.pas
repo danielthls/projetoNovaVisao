@@ -37,6 +37,7 @@ type
     procedure lstMenuItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
     procedure btnProcurar1Click(Sender: TObject);
+    procedure imgNovaVisaoClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -99,6 +100,11 @@ begin
   FreeAndNil(frmSistema);
 end;
 
+procedure TfrmSistema.imgNovaVisaoClick(Sender: TObject);
+begin
+  MultiView1.HideMaster;
+end;
+
 procedure TfrmSistema.lstMenuItemClick(const Sender: TCustomListBox;
   const Item: TListBoxItem);
 begin
@@ -107,7 +113,7 @@ begin
     mnuHome:
       Self.Close;
     mnuCadastrar:
-      ShowMessage('cadastrar');
+      Self.AbrirCadastro;
     mnuSair:
       Self.Close;
   end;
