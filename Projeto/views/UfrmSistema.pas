@@ -115,6 +115,8 @@ begin
       begin
         ShowMessage('Cliente "'+ DM.xCliente.Nome + '" foi encontrado!');
         edtCliente.Text := DM.xCliente.Nome;
+        if assigned(DM.xServiceChatGPT) then
+          FreeAndNil(DM.xServiceChatGPT);
         Result := True
       end
       else
