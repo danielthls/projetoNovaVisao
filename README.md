@@ -1,5 +1,5 @@
 # Projeto Nova Visão
-![alt text](https://github.com/danielthls/projetoNovaVisao/blob/main/Projeto/img/Logotipo%20fot%C3%B3grafo%20com%20c%C3%A2mera%20e%20paisagem.png?raw=true)
+![nova visão img](https://user-images.githubusercontent.com/72472472/223862592-71196360-89cc-4dfa-90ea-df810ee44164.png)
 ### Grupo Compilou Passou!
 
 - [Bruno Cesar](https://github.com/BrunoCesarMS)
