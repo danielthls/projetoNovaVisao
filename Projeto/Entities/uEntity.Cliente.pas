@@ -20,7 +20,7 @@ type
       procedure SetNome(const Value: String);
       procedure SetTelefone(const Value: String);
     public
-      constructor Create(const aID: Integer; aNome, aEmail, aTelefone: String);
+      constructor Create(aNome, aEmail, aTelefone: String);
 
       property Id: Integer read GetId write SetId;
       property Nome: String read GetNome write SetNome;
@@ -34,9 +34,8 @@ uses
 
 { TUser }
 
-constructor TCliente.Create(const aID: Integer; aNome, aEmail, aTelefone: String);
+constructor TCliente.Create(aNome, aEmail, aTelefone: String);
 begin
-  FId       := aID;
   FNome     := aNome;
   FEmail    := aEmail;
   FTelefone := aTelefone;

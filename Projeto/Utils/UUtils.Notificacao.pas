@@ -38,7 +38,7 @@ end;
 destructor TNotificacao.Destroy;
 begin
   FreeAndNil(Self.FCliente);
-  FreeAndNil(Self.FUrlImagem);
+  //FreeAndNil(Self.FUrlImagem);
   inherited;
 end;
 

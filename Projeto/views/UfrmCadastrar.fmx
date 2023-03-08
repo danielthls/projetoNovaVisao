@@ -1163,6 +1163,7 @@ object frmCadastrar: TfrmCadastrar
       Size.Height = 41.000000000000000000
       Size.PlatformDefault = False
       Stroke.Kind = None
+      OnClick = rectCadastrarClick
       object Label4: TLabel
         Align = Center
         StyledSettings = [Family]

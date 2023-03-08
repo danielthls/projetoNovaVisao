@@ -80,7 +80,8 @@ end;
 procedure TfrmEnviar.FormCreate(Sender: TObject);
 begin
   ObterLinks;
-end;
+
+  end;
 
 procedure TfrmEnviar.FormShow(Sender: TObject);
 begin

@@ -122,7 +122,7 @@ begin
   xResponse :=  TStringStream.Create;
   //xStreamTest := TStreamReader.Create('file.json');
   try
-    FClient.CustomHeaders['Authorization'] := 'Bearer ' + FToken;
+    {FClient.CustomHeaders['Authorization'] := 'Bearer ' + FToken;
     xFormData.AddFile('image', IMAGE);
     xFormData.AddField('n', FN);
     xFormData.AddField('size',SIZE);
@@ -131,10 +131,10 @@ begin
     xResponseCode := xHTTPResponse.StatusCode;
 
     xJSONFile := xResponse.DataString;
-    TFile.WriteAllText('file.json', xJSONFile);
+    TFile.WriteAllText('file.json', xJSONFile); }
 
     //Para testar sem puxar o API - Descomentar
-    //xJSONFile := TFile.ReadAllText('file.json');
+    xJSONFile := TFile.ReadAllText('file.json');
     FJSONObject := TJSONObject.ParseJSONValue(xJSONFile) as TJSONObject;
 
     xJSONFile := FJSONObject.ToString;
