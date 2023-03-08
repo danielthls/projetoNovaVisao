@@ -7,7 +7,7 @@ uses
   System.Variants, UService.ChatGPT,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.ListBox,
-  FMX.MultiView, UEntity.Cliente;
+  FMX.MultiView, UEntity.Cliente, UUtils.Enum;
 
 type
   TfrmEnviar = class(TForm)
@@ -37,10 +37,13 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure rectEnviarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Label4Click(Sender: TObject);
   private
     { Private declarations }
     procedure VoltarSistema;
     procedure ObterLinks;
+    procedure SolicitarNotificacao;
+    function DefinirTipoNotificacao: opEnumEnviar;
   public
     { Public declarations }
   end;
@@ -53,7 +56,8 @@ implementation
 uses
   UfrmSistema,
   UDM,
-  UfrmImagens;
+  UfrmImagens,
+  UUtils.Notificacao;
 
 {$R *.fmx}
 
@@ -82,6 +86,32 @@ begin
   lblEmail.Text := DM.xCliente.Email;
   lblCelular.Text := DM.xCliente.Telefone;
   end;
+end;
+
+{Solicita a notificação}
+procedure TfrmEnviar.Label4Click(Sender: TObject);
+begin
+  SolicitarNotificacao;
+end;
+
+{Definir tipo de notificação}
+function TfrmEnviar.DefinirTipoNotificacao: opEnumEnviar;
+begin
+  if rbEmail.IsChecked then
+      Result := opEnumEnviar.opEnviarPorEmail
+  else if rbCelular.IsChecked then
+    Result := opEnumEnviar.opEnviarPorApp
+  else
+    Result := opEnumEnviar.opEnviarAmbos;
+end;
+
+{Solicitar o Service de notificação}
+procedure TfrmEnviar.SolicitarNotificacao;
+var
+  aNotificacao: TNotificacao;
+begin
+  aNotificacao := TNotificacao.Create(DM.xCliente, DM.xServiceChatGPT.ListaLinks);
+  aNotificacao.SolicitarNotificacao(DefinirTipoNotificacao);
 end;
 
 procedure TfrmEnviar.ObterLinks;

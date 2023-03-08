@@ -14,11 +14,11 @@ uses
   UDao.Cliente in 'Dao\UDao.Cliente.pas',
   uEntity.Cliente in 'Entities\uEntity.Cliente.pas',
   UUtils.Banco in 'Utils\UUtils.Banco.pas',
-  UService.Notificacao in 'service\UService.Notificacao.pas',
-  UNotificacaoApp in 'units\UNotificacaoApp.pas',
-  UNotificacaoEmail in 'units\UNotificacaoEmail.pas',
   UUtils.Consts in 'Utils\UUtils.Consts.pas',
-  UDM in 'service\UDM.pas' {DM: TDataModule};
+  UDM in 'service\UDM.pas' {DM: TDataModule},
+  UService.NotificacaoApp in 'service\UService.NotificacaoApp.pas',
+  UService.NotificacaoEmail in 'service\UService.NotificacaoEmail.pas',
+  UUtils.Notificacao in 'Utils\UUtils.Notificacao.pas';
 
 {$R *.res}
 

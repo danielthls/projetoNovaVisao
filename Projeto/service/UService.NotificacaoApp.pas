@@ -1,4 +1,4 @@
-unit UNotificacaoApp;
+unit UService.NotificacaoApp;
 
 interface
 
@@ -32,7 +32,7 @@ begin
   for I := 0 to pred(aUrlImagem.Count) do
   begin
     xCorpoDaMensagem := xCorpoDaMensagem + (I+1).ToString + 'ª Url da imagem: '
-                                                          + aUrlImagem[I] + #1310;
+                        + aUrlImagem[I] + #1310;
   end;
 
   try

@@ -1,4 +1,4 @@
-unit UNotificacaoEmail;
+unit UService.NotificacaoEmail;
 
 interface
 
@@ -47,15 +47,15 @@ begin
     xSMTP.Username := EMAIL;
     xSMTP.Password := PASSWORD;
     xSMTP.UseTLS := utUseExplicitTLS;
-    xMessage.From.Address := aEmailCliente; //destinatario
+    xMessage.From.Address := aEmailCliente;                       //destinatario
     xMessage.Recipients.Add;
-    xMessage.Recipients.Items[0].Address := aEmailCliente;//destinatario
-    xMessage.Subject := 'Suas variações de imagem estão prontas!'; //assunto do email
+    xMessage.Recipients.Items[0].Address := aEmailCliente;        //destinatario
+    xMessage.Subject := 'Suas variações de imagem estão prontas!';//assunto email
     for I := 0 to pred(aUrlImagem.Count) do
     begin
-      xMessage.Body.Add((I+1).ToString + 'ª Url da imagem: ' +
-                                          aUrlImagem[I]); //corpo
-      xMessage.Body.Add(' ');
+      xMessage.Body.Add((I+1).ToString + 'ª Url da imagem: '
+                                       + aUrlImagem[I]);        //corpo do email
+      xMessage.Body.Add(' ');                      // espacamento entre as url's
     end;
     try
       xSMTP.Connect;
