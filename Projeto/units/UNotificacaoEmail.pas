@@ -4,7 +4,7 @@ interface
 
 uses
   Fmx.Dialogs, System.SysUtils, System.Classes,
-  UConsts,
+  UUtils.Consts,
   IdSMTP,
   IdMessage,
   IdSSLOpenSSL,

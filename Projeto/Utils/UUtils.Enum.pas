@@ -1,4 +1,4 @@
-unit UEnum;
+unit UUtils.Enum;
 
 interface
 

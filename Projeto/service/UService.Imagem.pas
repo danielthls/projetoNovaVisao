@@ -72,8 +72,8 @@ begin
     RedimensionarImagem;
     FBitmapCopia.SaveToFile(IMAGEM_TEMPORARIA)
   end
-  else
-    raise Exception.Create('Erro: Nenhuma imagem foi carregada');
+  {else
+    raise Exception.Create('Erro: Nenhuma imagem foi carregada');}
 end;
 
 destructor TServiceImagem.Destroy;

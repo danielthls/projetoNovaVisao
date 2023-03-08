@@ -1,4 +1,4 @@
-unit UServiceNotificacao;
+unit UService.Notificacao;
 
 interface
 
@@ -24,7 +24,7 @@ uses
    UNotificacaoApp,
    UNotificacaoEmail,
    System.SysUtils,
-   UEnum;
+   UUtils.Enum;
 
 {Constructor}
 constructor TNotificacao.Create(aUsuario: String{TUsuario}; aUrlImagem: TStringList);
